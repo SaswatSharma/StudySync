@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudySync</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Playwrite+AU+SA&display=swap');
+
+        :root {
+            --primary-color: #6366F1;
+            --accent-color: #3f83f8;
+            --text-color: #333333;
+            --link-color: #2563eb;
+            --background-color: #ffffff;
+            --light-gray: #f0f0f0;
+            --gray: #808080;
+            --dark-gray: #555;
+        }
+
+        * {
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+            text-decoration: none;
+        }
+
+        html,
+        body {
+            box-sizing: border-box;
+            height: 100vh;
+            width: 100%;
+            text-align: center;
+            padding: 0px 0px;
+            overflow-x: hidden;
+        }
+
+        .header {
+            padding: 0px 0px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .headerContent {
+            padding: 20px 0px;
+            display: flex;
+            justify-content: space-around;
+            width: 1400px;
+        }
+
+        .logo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: xx-large;
+            font-weight: bold;
+            text-decoration: none;
+            color: var(--text-color);
+            gap: 8px;
+        }
+
+        #imglogo {
+            height: 5.875rem;
+            width: 1.938rem;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 14px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .nav a {
+            color: var(--gray);
+        }
+
+        #Contact {
+            font-size: smaller;
+            font-weight: bold;
+            padding: 10px 15px;
+            background: var(--primary-color);
+            color: var(--background-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 50%;
+            margin: auto 0;
+            border-radius: 5px;
+        }
+
+        .nav a:hover {
+            color: var(--link-color);
+        }
+
+        #Contact:hover {
+            background: #5254f8;
+        }
+
+        #start:hover {
+            background: #5254f8;
+        }
+
+        #tour:hover {
+            background: #000000;
+        }
+
+        .menubutton {
+            display: none;
+        }
+
+        .maincontent {
+            padding-left: 50px;
+            margin-top: 30px;
+            place-self: center;
+            width: 80%;
+            min-width: 768px;
+            height: 500px;
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: row;
+            justify-content: center;
+        }
+
+        .left {
+            padding-top: 20px;
+            width: 50%;
+            height: 90%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            text-indent: 0;
+            margin-left: 0;
+            padding-left: 0;
+            text-align: left;
+            animation: slidefromleft 1s ease forwards;
+        }
+
+        @keyframes slidefromleft {
+            0% {
+                opacity: 0;
+                transform: translateX(-100%);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .right {
+            width: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #rightimg {
+            border-radius: 20px;
+            height: 100%;
+            width: 80%;
+        }
+
+        #title {
+            color: var(--dark-gray);
+            font-weight: bold;
+        }
+
+        #heading {
+            width: 95%;
+            font-weight: 800;
+            font-size: 3.5rem;
+        }
+
+        #content {
+            width: 76%;
+            color: var(--gray);
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        #buttonpair {
+            display: flex;
+            gap: 10px;
+        }
+
+        #start {
+            font-size: smaller;
+            font-weight: bold;
+            padding: 10px 15px;
+            background: var(--primary-color);
+            color: var(--background-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 90%;
+            margin: auto 0;
+            border-radius: 5px;
+            border: none;
+        }
+
+        #tour {
+            font-size: smaller;
+            font-weight: bold;
+            padding: 10px 15px;
+            background: var(--text-color);
+            color: var(--background-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 90%;
+            margin: auto 0;
+            border-radius: 5px;
+            border: none;
+        }
+
+        .CompanyContainer {
+            margin-top: 5rem;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 1.5rem;
+            animation: slidefromleft 1s ease forwards;
+        }
+
+        #CompanyTitle {
+            font-size: 1.7rem;
+            font-weight: 800;
+        }
+
+        .companies {
+            background-color: var(--light-gray);
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(1);
+            gap: 2rem;
+            padding: 2rem;
+            margin-bottom: 5rem;
+            border: none;
+            border-radius: .6rem;
+        }
+
+        .company {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .companypic {
+            height: 1.3rem;
+        }
+
+        .companytext {
+            font-size: smaller;
+            font-weight: bold;
+            color: var(--gray);
+        }
+
+        .cardcontainer {
+            background-color: var(--light-gray);
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-bottom:5px;
+        }
+
+        .cardcontent {
+            width: 45%;
+            min-width: 580px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-self: center;
+            gap: 1rem;
+            font-size: small;
+        }
+
+        #cardcontentheading {
+            height: 5%;
+            font-size: 1.7rem;
+            font-weight: 800;
+        }
+
+        .cardgrid {
+            height: 79.5%;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .card {
+            min-height: 100%;
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: #b09494;
+            gap: 1rem;
+            border-radius: 1rem;
+            color: white
+        }
+
+        .imagecontainer {
+            background: #ffffff;
+            height: 2.4rem;
+            width: 2.4rem;
+            border-radius: 3rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .cardimg {
+            height: 1.2rem;
+            width: 1.2rem;
+        }
+
+        #para {
+            color: var(--gray);
+            height: 6%;
+        }
+
+        .cardheading {
+            font-size: large;
+            font-weight: bold;
+        }
+
+        #card1 {
+            background: rgb(69, 69, 203);
+        }
+
+        #card2 {
+            background: rgb(241, 127, 89);
+        }
+
+        #card3 {
+            background: rgb(224, 161, 23);
+        }
+
+        #card4 {
+            background: rgb(23, 176, 200);
+        }
+
+        #card5 {
+            background: rgb(43, 225, 19);
+        }
+
+        #card6 {
+            background: rgb(110, 110, 220);
+        }
+        .testimonialcontainer{
+            padding:30px;
+            height:auto;
+            width:100%;
+        }
+        .testimonialcontent{
+            place-self: center;
+            height: 90%;
+            width:70%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap:10px;
+        }
+        #testiheading{
+            font-size: 1.5rem;
+            font-weight:800;
+        }
+        .testicardcontainer{
+            place-self: center;
+            height:90%;
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            gap:1rem;
+        }
+        .testicards{
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            /* gap:10px; */
+            border: 0.3px solid rgb(218, 213, 213);
+            box-shadow: 0 0 2px rgb(192, 189, 189);
+            padding: 0.5rem;
+            border-radius: 5px;
+            color:var(--dark-gray);
+            font-size:smaller;
+        }
+        #testiimg{
+            height: 4rem;
+        }
+        #name{
+            color:var(--primary-color);
+            font-weight: bold;
+        }
+        #designation{
+            min-height: 10%;
+        } 
+        .testicards:hover{
+            transform: scale(1.03);
+            box-shadow: 0 0 10px rgb(122, 121, 121);
+        }
+        .newslettercontainer{
+            width:100%;
+            height:20rem;
+        }
+        .newsletter{
+            place-self: center;
+            width:70%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .nlcleft{
+            width:50%;
+            height: 100%;
+        }
+        .nlcleft img{
+            width: 100%;
+            height: 100%;
+        }
+        .nlcright{
+            width: 50%;
+            height:100%;
+            background-color: var(--light-gray);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .rightcontent{
+           place-self: center;
+           min-height: 50%;
+           width: 80%;
+           display: flex;
+           flex-direction: column;
+           justify-content: space-around;
+           text-align: center;
+        }
+        #title{
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary-color);
+        }
+        #signup{
+            color: var(--dark-gray);
+        }
+        #mail{
+            width: 50%;
+            height:2rem;
+            padding:5px;
+        }
+        #send{
+            background:var(--primary-color);
+            font-weight: 500;
+            color:white;
+            height:2.3rem;
+            width:4rem;
+            border-radius: 5px;
+            margin-left: 4px;
+        }
+        #send:hover{
+            transform: scale(1.1);
+            background:rgb(70, 70, 234);
+        }
+        #policy{
+            font-size: x-small;
+            color: var(--dark-gray);
+        }
+        #policy a{
+            text-decoration: underline;
+            color: #3f83f8;
+            font-size: smaller;
+        }
+        .email{
+            display: flex;
+        }
+        .rci{
+            text-align: left;
+        }
+        .footer{
+            place-self: center;
+            margin:5rem;
+            width:93%;
+            height:17rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .footercontent{
+            height:95%;
+            width:70%;
+            display: flex;
+            justify-content: space-between;
+        }
+        .footerleft{
+            display: flex;
+            flex-direction: column;
+            text-align: start;
+            align-items: start;
+            gap:1.5rem;
+            width:40%;
+            word-wrap: wrap;
+        }
+        #footerlogo{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap:5px;
+         }
+
+         #flllogo{
+            height: 1.5rem;
+         }
+         #flllogotext{
+            font-size: 1rem;
+            font-weight: 800;
+         }
+         #line{
+            font-size: 0.8rem;
+            color: var(--dark-gray);
+         }
+         #handles{
+            display: flex;
+            gap:10px;
+         }
+        .footerright
+        {
+            padding-right:1rem;
+            padding-left: 1rem;
+            max-width:100%;
+            display:grid;
+            gap: 1rem;
+            grid-template-columns: repeat(4,1fr);
+        }
+        .frcards ul{
+            list-style-type: none;
+        }
+        .frcards{
+            display: flex;
+            flex-direction: column;
+            gap:2rem;
+        }
+        .frcheading{
+            display: flex;
+            text-align:start;
+            font-size: 1rem;
+            font-weight: bold;
+        }
+        .frcards ul{
+            display: flex;
+            flex-direction: column;
+            text-align: start;
+            gap:0.8rem;
+        }
+        .frcards a{
+            text-decoration: none;
+            color: var(--gray);
+            font-size: small;
+        }
+        .license{
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-top: 5rem;
+            height: 5%;
+            font-size: small;
+            color: var(--gray);
+        }
+        #line{
+            width:100%;
+        }
+        .links a:hover{
+            color: #2563eb;
+        }
+        @media screen and (max-width:765px) {
+
+            .nav,
+            #Contact {
+                display: none;
+            }
+
+            .headerContent {
+                justify-content: space-between;
+                margin-left: 25px;
+            }
+
+            .menubutton {
+                display: flex;
+                margin: auto 0px;
+                margin-right: 20px;
+                background: #ffffff;
+                height: 25px;
+                width: 25px;
+                border: none;
+            }
+
+            .logo {
+                font-size: x-large;
+            }
+
+            .maincontent {
+                padding-left: 0px;
+                padding-bottom: 10px;
+                margin-top: 0px;
+                place-self: center;
+                width: 95%;
+                min-width: 350px;
+                height: 101vh;
+                display: flex;
+                flex-wrap: wrap;
+                flex-direction: column;
+                gap:0.5rem;
+                justify-content: space-around;
+            }
+
+            .left {
+                padding-top: 0px;
+                width: 100%;
+                height: 50%;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
+                /* text-indent: 0;
+    margin-left: 0;
+    padding-left: 0;
+    text-align: left; */
+                text-align: center;
+                align-items: center;
+            }
+
+            .right {
+                width: 100%;
+                height: 40%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            #rightimg {
+                border-radius: 20px;
+                height: 100%;
+                width: 70%;
+            }
+
+            #heading {
+                width: 100%;
+                font-weight: 800;
+                font-size: 2.5rem;
+            }
+
+            #content {
+                width: 100%;
+                color: var(--gray);
+                font-weight: 500;
+                font-size: 0.95rem;
+            }
+
+            .CompanyContainer {
+                margin-top: 0rem;
+                width: 100vw;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 1.5rem;
+                animation: slidefromleft 1s ease forwards;
+            }
+
+            .companies {
+                background-color: var(--light-gray);
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: repeat(2, 1fr);
+                gap: 3rem;
+                padding: 1rem;
+                margin-bottom: 2rem;
+                border: none;
+                border-radius: .6rem;
+            }
+
+            .cardgrid {
+                height: 80%;
+                display: grid;
+                grid-template-columns: repeat(1, 1fr);
+                grid-template-rows: repeat(6, 1fr);
+                gap: 1.5rem;
+            }
+            .cardcontent {
+            min-width:300px;
+            width:80%;
+            height:100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-self: center;
+            gap: 1rem;
+            font-size: small;
+        }
+        .cardcontainer {
+            background-color: var(--light-gray);
+            height:200vh;
+            width: 100vw;
+            display: flex;
+            word-wrap:wrap;
+            justify-content: center;
+            align-items: center;
+        }
+        .testicardcontainer{
+            height:90%;
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(1,1fr);
+            gap:1rem;
+        } 
+        .nlcleft{
+            width:0%;
+            height: 0%;
+        }
+        .nlcright{
+            display: flex;
+            justify-content: center;
+            width:100%;
+            height:100%;
+        }
+        .rightcontent{
+            padding-left:60px;
+        }
+        .newsletter{
+            place-self: center;
+            width:100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .footer{
+            place-self: center;
+            margin:5rem;
+            width:93%;
+            height:19rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+        }
+        .footercontent{
+            height:96%;
+            width:100%;
+            align-self: center;
+            display: flex;
+            flex-direction: column;
+            gap:2rem;
+        }
+        .footerleft{
+            display: flex;
+            flex-direction: column;
+            width:50%;
+            word-wrap: wrap;
+            /* text-align: start; */
+            justify-content: center;
+            margin: 0 auto;
+            /* text-align: start; */
+            gap:1.5rem;
+        }
+        .footerright
+        {
+            /* margin:0 auto; */
+            padding-right:1rem;
+            width:100%;
+            display:grid;
+            gap: 1rem;
+        }
+        .license{
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-top: 5rem;
+            height: 4%;
+            font-size: small;
+            color: var(--gray);
+        }
+        }
+        @media screen and (max-width:400px){
+        .footerright
+        {
+            /* margin:0 auto; */
+            padding-right:1rem;
+            width:100%;
+            display:grid;
+            grid-template-columns: repeat(2,1fr);
+            grid-template-rows: repeat(2,1fr);
+            gap: 1rem;
+        }
+        .footer{
+            height:32rem;
+        }
+        .maincontent{
+            height:110vh;
+        }
+        .left{
+            height: 55%;
+            gap:8px;
+        }
+        .right{
+            height: 35%;
+        }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <div class="headerContent">
+            <a class="logo" href="#">
+                <img id="imglogo" src="images/StudySyn.svg" alt="StudySyncLogo">
+                <span id="logotext">StudySync</span>
+            </a>
+            <nav class="nav">
+                <a href="#home">Home</a>
+                <a href="#Features">Features</a>
+                <a href="#Pricing">Pricing</a>
+                <a href="#Blog">Blog</a>
+                <a href="#About">About</a>
+            </nav>
+            <a id="Contact" href="#contact">
+                Contact Us
+            </a>
+            <button class="menubutton">
+                <img src="images/Hamburger.svg">
+            </button>
+        </div>
+    </header>
+    <main class="main">
+        <div class="maincontent">
+            <div class="left">
+                <p id="title">Very proud to introduce</p>
+                <span id="heading">Seamless Learning for Brigthter Futures</span>
+                <p id="content">Our innovative plaform offers an effortless and seamless approach to learning,empowering
+                    students of all ages to achieve brighter futures.Join us at a transformative journey to simplify
+                    education and unlock your potential.</p>
+                <div id="buttonpair">
+                    <button id="start">
+                        Start now
+                    </button>
+                    <button id="tour">
+                        Take tour
+                    </button>
+                </div>
+            </div>
+            <div class="right">
+                <img id="rightimg" src="images/usgs-hoS3dzgpHzw-unsplash.jpg">
+            </div>
+        </div>
+    </main>
+    <div class="CompanyContainer">
+        <p id="CompanyTitle">Trusted by the best</p>
+        <div class="companies">
+            <div class="company" id="google">
+                <img class="companypic" src="images/Google.svg">
+                <span class="companytext">Google</span>
+            </div>
+            <div class="company" id="microsoft">
+                <img class="companypic" src="images/Microsoft.svg">
+                <span class="companytext">Microsoft</span>
+            </div>
+            <div class="company" id="linkedin">
+                <img class="companypic" src="images/linkedin-copy.svg">
+                <span class="companytext">Linkedin</span>
+            </div>
+            <div class="company" id="vectoredu">
+                <img class="companypic" src="images/VectorEdu.svg">
+                <span class="companytext">VectorEdu</span>
+            </div>
+        </div>
+    </div>
+    <div class="cardcontainer">
+        <div class="cardcontent">
+            <span id="cardcontentheading">
+                Our Competitive Advantage
+            </span>
+            <p id="para">
+                We deal differently from our competitors and we have the following differentiation which includes
+                personalised learning,affordability and many more.
+            </p>
+            <div class="cardgrid">
+                <div id="card1" class="card">
+                    <div class="imagecontainer"><img class="cardimg" src="images/PersonalizedLearn.svg" alt=""></div>
+                    <span class="cardheading">Personalised Learning</span>
+                    <p class="cardpara">Offered tailored learning experiences through AI and ML to cater individual
+                        Student needs.</p>
+                </div>
+                <div id="card2" class="card">
+                    <div class="imagecontainer"><img class="cardimg" src="images/Affordability.svg" alt=""></div>
+                    <span class="cardheading">Affordability</span>
+                    <p class="cardpara">Provide high quality education at affordable price point ,make it accessible to
+                        a broader audiece</p>
+                </div>
+                <div id="card3" class="card">
+                    <div class="imagecontainer"><img class="cardimg" src="images/IndustryPatner.svg" alt=""></div>
+                    <span class="cardheading">Industry Partnerships</span>
+                    <p class="cardpara">Collaborate with well-known companies and institutions to offer accredited
+                        courses and certifications, adding credibility to your offerings.</p>
+                </div>
+                <div id="card4" class="card">
+                    <div class="imagecontainer"><img class="cardimg" src="images/InnovativeTech.svg" alt=""></div>
+                    <span class="cardheading">Innovative Technology</span>
+                    <p class="cardpara">Utilize cutting-edge technology, such as augmented reality or virtual reality,
+                        to create immersive learning experiences.</p>
+                </div>
+                <div id="card5" class="card">
+                    <div class="imagecontainer"><img class="cardimg" src="images/InnovativeTech.svg" alt=""></div>
+                    <span class="cardheading">
+                        Responsive Support
+                    </span>
+                    <p>Provide exceptional customer support and assistance to students and educators.</p>
+                </div>
+                <div id="card6" class="card">
+                    <div class="imagecontainer"><img class="cardimg" src="images/Analytics.svg" alt=""></div>
+                    <span class="cardheading">Analytics and Insights</span>
+                    <p>Offer detailed progress tracking and analytics to help students and teachers monitor performance
+                        and make data-driven decisions.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="testimonialcontainer">
+        <div class="testimonialcontent">
+            <span id="testiheading">What Others Say About Us</span>
+            <div class="testicardcontainer">
+                <div class="testicards">
+                    <span id="words">"StudySync revolutionized my classroom! Engaging content and teacher resources make learning enjoyable. Highly recommended for educators."</span>
+                    <img id="testiimg" src="images/avatar1.png" alt="img">
+                    <span><p id="name">Sarah Johnson</p><p>8th Grade English Teacher</p></span>
+                </div>
+                <div class="testicards">
+                    <span id="words">“StudySync transformed our family's learning journey. Safe, interactive, and progress tracking features are invaluable for parents.”</span>
+                    <img id="testiimg" src="images/avatar2.png" alt="img">
+                    <span><p id="name">Mark Devis</p><p>Parent</p></span>
+                </div>
+                <div class="testicards">
+                    <span id="words">"“StudySync, a true game-changer! Flexible content, tailored assessments, and excellent support. Integral to our school district's success.”</span>
+                    <img id="testiimg" src="images/avatar3.png" alt="img">
+                    <span><p id="name">Dr. James Charter</p><p>School Administrator</p></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="newslettercontainer">
+        <div class="newsletter">
+            <div class="nlcleft">
+                <img src="images/img.png" alt="">
+            </div>
+            <div class="nlcright">
+                <div class="rightcontent">
+                    <span class="rci" id="title">Get the latest Updates</span>
+                    <span class="rci" id="signup">Sign up for our newsletter</span>
+                    <div class="rci" class="email">
+                        <input id="mail" type="text" placeholder="Email">
+                        <button id="send">Send</button>
+                    </div>
+                    <span class="rci" id="policy">By signing to our newsletter you agree to our <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></span>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="footer">
+        <div class="footercontent">
+            <div class="footerleft">
+                <div id="footerlogo">
+                 <img id="flllogo" src="images/StudySyn.svg" alt="StudySyncLogo">
+                 <span id="flllogotext">StudySync</span>
+                </div>
+                <span id="line">Seamless learning for Brighter Futures.</span>
+                <div id="handles">
+                    <a href="#"><img src="images/instagram.svg" alt=""></a>
+                    <a href="#"><img src="images/twitter.svg" alt=""></a>
+                    <a href="#"><img src="images/linkedin-copy.svg" alt=""></a>
+                    <a href="#"><img src="images/github.svg" alt=""></a>
+                </div>
+            </div>
+            <div class="footerright">
+                <div class="frcards">
+                    <span class="frcheading">Products</span>
+                    <ul class="links">
+                       <a href="#"><li>Overview</li></a> 
+                       <a href="#"><li>Solution</li></a> 
+                       <a href="#"><li>Pricing</li></a> 
+                       <a href="#"><li>Customers</li></a> 
+                    </ul>
+                </div>
+                <div class="frcards">
+                    <span class="frcheading">Company</span>
+                    <ul class="links">
+                       <a href="#"><li>About</li></a> 
+                       <a href="#"><li>Investor Relations</li></a> 
+                       <a href="#"><li>Jobs</li></a> 
+                       <a href="#"><li>Press</li></a> 
+                       <a href="#"><li>Blog</li></a>
+                    </ul>
+                </div>
+                <div class="frcards">
+                    <span class="frcheading">Company</span>
+                    <ul class="links">
+                       <a href="#"><li>Contact</li></a> 
+                       <a href="#"><li>Documentation</li></a> 
+                       <a href="#"><li>Chat</li></a> 
+                       <a href="#"><li>FAQ</li></a> 
+                    </ul>
+                </div>
+                <div class="frcards">
+                    <span class="frcheading">Legal</span>
+                    <ul class="links">
+                       <a href="#"><li>Terms Of Service</li></a> 
+                       <a href="#"><li>Privacy Policy</li></a> 
+                       <a href="#"><li>Cookies Settings</li></a> 
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="license">
+            <hr id="line"></hr>
+            <span id="rigthsreserved">&#169 2021-Present StudySync.All rigths reserved.</span>
+        </div>
+    </div>
+</body>
+
+</html>
